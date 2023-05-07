@@ -27,10 +27,13 @@ import { BsGithub, BsWhatsapp } from "react-icons/bs"
 import { RiInstagramFill } from "react-icons/ri"
 import { FaLinkedinIn, FaCircle } from "react-icons/fa"
 import { Card } from "../components/Card"
+import CustomInput from "../components/CustomInput"
 
 const App = () => {
 
   const [square, setSquare] = useState<boolean>(false)
+  const [next, setNext] = useState<boolean>(false)
+
   const [image] = useState([
     { "image": Altera }, { "image": Poltek }
   ])
@@ -49,6 +52,14 @@ const App = () => {
   const newExperience = experience.map((item, index) => ({
     ...item, ...imageEx[index]
   }))
+
+  console.log(newExperience)
+
+
+
+  // const Detail = (index: number) => {
+
+  // }
 
   return (
     <Layout>
@@ -120,6 +131,8 @@ const App = () => {
         </div>
       </div>
 
+      {/* About Me */}
+
       <div className="relative">
         <h1 className="flex justify-center items-center gap-1 text-[32px] text-zinc-900 font-bold">About me <FaCircle size={10} className='text-hijau mt-4' /></h1>
         <p className="mt-10 mx-auto w-7/12 text-center">{Aboutme.data}</p>
@@ -139,6 +152,8 @@ const App = () => {
         <div className="w-2 h-2 rounded-full bg-hijau absolute top-[300px] left-16"></div>
       </div>
 
+      {/* Education */}
+
       <div className="relative mt-40">
         <h1 className="flex justify-center items-center gap-1 text-[32px] text-zinc-900 font-bold">Education <FaCircle size={10} className='text-hijau mt-4' /></h1>
         {newEdu.map((data, index) => (
@@ -157,19 +172,27 @@ const App = () => {
         ))}
       </div>
 
+      {/* Experience */}
+
       <div className="mt-24 px-16">
         <h1 className="flex justify-center items-center gap-1 text-[32px] text-zinc-900 font-bold">Experience <FaCircle size={10} className='text-hijau mt-4' /></h1>
 
         <div className="flex flex-wrap justify-center gap-10 mt-14">
-          {newExperience.map((item) => (
+          {newExperience.map((item, index) => (
             <Card
+              key={index}
               image={item.image}
               content={item.content}
               position={item.position}
+              jobdesc1={item.jobdesc1}
+              jobdesc2={item.jobdesc2}
+            // no={index + 1}
             />
           ))}
         </div>
       </div>
+
+      {/* My Project */}
 
       <div className="mt-24 px-16">
         <h1 className="text-center text-[28px] text-zinc-900">My Regular Updated</h1>
@@ -186,13 +209,76 @@ const App = () => {
         </div>
       </div>
 
+      {/* Contact Feature */}
+
       <div className="mt-24 px-16">
         <h1 className="flex justify-center items-center gap-1 text-[38px] text-hijau font-semibold">Contact <FaCircle size={10} className='text-hijau mt-4 tracking-widest' /></h1>
 
-        <p className="text-center text-[16px] text-zinc-900 w-6/12 mx-auto">I am still new to the technologi information, but I will try my best to fulfil the tasks and responsibilities assigned to me, and always learn things that I don't understand so that I can continue to grow.</p>
+        <p className="text-center text-[16px] text-zinc-900 w-7/12 mx-auto">I am still new to the technologi information, but I will try my best to fulfil the tasks and responsibilities assigned to me, and always learn things that I don't understand so that I can continue to grow.</p>
 
-        <p className="text-[16px] text-zinc-900 font-semibold text-center mt-5">fill in the form to send an email</p>
+        <p className="text-[16px] text-zinc-900 font-semibold text-center mt-16">fill in the form to send an email</p>
+        <div className="relative">
+          <CustomInput
+            id="input-email"
+            type="email"
+            placeholder="Email"
+            width="7/12"
+          />
+          <CustomInput
+            id="input-name"
+            type="text"
+            placeholder="Full Name"
+            width="7/12"
+          />
+          <CustomInput
+            id="input-company"
+            type="text"
+            placeholder="Company Name"
+            width="7/12"
+          />
+
+          <div className="mt-8 text-center">
+            <textarea
+              id="input-message"
+              typeof="text"
+              placeholder="Your Message"
+              className="w-7/12 max-w-full bg-[#D9D9D9] border-none rounded-lg h-36 py-4"
+            />
+          </div>
+
+          <div className="mt-10 text-center">
+            <CustomButton
+              id="btn-send"
+              label="Send Message"
+              size="7/12"
+            />
+          </div>
+
+          <div className='absolute top-0 right-28 flex flex-col gap-10 mb-4 mt-10'>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3, type: "spring" }}>
+              <FaLinkedinIn size={20} />
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4, type: "spring" }}>
+              <BsGithub size={20} />
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.5, type: "spring" }}>
+              <BsWhatsapp size={20} />
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.6, type: "spring" }}>
+              <RiInstagramFill size={22} />
+            </motion.div>
+          </div>
+        </div>
       </div>
+
+      {/* Tech Stack */}
+
+      <div className="relative mt-16">
+        <h1 className="flex justify-center items-center gap-1 text-[32px] text-zinc-900 font-semibold ">Technology Stack <FaCircle size={10} className='text-hijau mt-4' /></h1>
+
+        <p>Some of the technologies or frameworks that I use to complete some of my projects</p>
+      </div>
+
     </Layout >
   )
 }

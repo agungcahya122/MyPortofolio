@@ -1,10 +1,16 @@
 [
   {
+    "id": 1,
     "position": "Human Resource",
-    "content": "I work at PT. Panca Karya Kayoe in the Human Resources section from Dec 2021 - Oct 2022."
+    "content": "I work at PT. Panca Karya Kayoe in the Human Resources section from Dec 2021 - Oct 2022.",
+    "jobdesc1": " ● Manage employee data and other employee needs (BPJS Kes, jamsostek, salary, interview, employee termination and others). ",
+    "jobdesc2": "● Maintain employee discipline following the rules set by management, maintain order in the surrounding environment with the company or with fellow employees."
   },
   {
+    "id": 2,
     "position": "Operator and Maintenance",
-    "content": "I did an internship at the Mechatronics Laboratory of the Malang State Polytechnic from December 2020 - Feb 2021."
+    "content": "I did an internship at the Mechatronics Laboratory of the Malang State Polytechnic from December 2020 - Feb 2021.",
+    "jobdesc1": "● Control operator and maintenance system 2mx2mx2m 3D Printing (maintenance which includes a microcontroller, replacement of damaged components, 3D machine calibration).",
+    "jobdesc2": "● Making an innovation of alarm system when the power source was gone the bell ringing, and microcontroller has supplied electric with accu."
   }
 ]
