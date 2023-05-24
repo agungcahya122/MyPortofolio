@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "LapakUMKM App",
+    "description": "LapakUMKM is a similar e-commerce app, users can become buyers or sellers. This app has some features there are feature chatting, discussion, user can review a product, logging in with a Google account, theme settings, easy management of products for the seller and feature reporting sales weekly for the seller. To make a design we use Figma, React Typescript, TailwindCSS, React Cookies, React Hook, React Router, Github, and others.",
+    "technology": "React-Typescript, React-Cookies, React-Router, React-Icons, React-Oauth,React-Password-Strengthbar,React-Redux, React-Toastify, TailwindCSS, DaisyUI, RadixUI, Lottie-React, Sweetalert2, Currency-Formatter, Axios, Midtrans",
+    "deploy": "https://agungcahya.vercel.app",
+    "figma": "https://www.figma.com/file/45bp8KnmNTYApNm7pS3am8/Lapak-UMKM?type=design&node-id=0-1&t=ZTMIl7TZaLF9399V-0"
+  },
+  {
+    "id": 2,
+    "title": "Sabilunnashr App",
+    "description": "Sabilunnashr is platform for sharing knowledge, especially in religious knowledge. this is about fiqih, akidah akhlaq, makhorijul huruf, and others. Sabilunnashr also having provide online class on religious knowledge and users can register here with complete the form.",
+    "technology": "React, React-Router, React-Icons, React-Toastify, TailwindCSS, DaisyUI, Sweetalert2, Moment.js,Xlsx,File-Saver, Axios",
+    "deploy": "http://sabilunnashr.com",
+    "figma": "https://www.figma.com/file/uxQu6GLWvRxTCwDa7qr9zA?type=design&fuid=1184318273751365279"
+  },
+  {
+    "id": 3,
+    "title": "GoHome App",
+    "description": "GoHome is a similar Traveloka app, users can become booking or rent. This app has some features there are feature feedback(user can review a product), easy management of rental staycation or hotel for the rent and have feature updating data. To make a design we use Figma, React Typescript, TailwindCSS, React Cookies, React Hook, React Router, Github, and others.",
+    "technology": "React Typescript, React-Router, React-Icons, React-Redux, TailwindCSS, DaisyUI, Sweetalert2, Moment.js,Axios",
+    "deploy": "https://go-home.vercel.app",
+    "figma": "https://www.figma.com/file/73QPRJrSFEvy9UAsngWQJX/AirBnb-web-Design?type=design&node-id=0-1&t=QsPU1fS9IKKIv3hg-0"
+  },
+  {
+    "id": 4,
+    "title": "GuruMu App",
+    "description": "Gurumu is a platform created to make it easier for young people who want to improve their knowledge without any obstacles or obstacles in accessing it. Because the system that is run can use offline or online. The existing features are teacher data verification features, CRUD Users, CRUD learning schedules, and the most superior in determining the location of guidance according to maps. To make a design we use Figma, React Typescript, TailwindCSS, React Cookies, React Hook, React Router, Github, and others.",
+    "technology": "React Typescript, React-Router, React-Icons, React-Redux, TailwindCSS, DaisyUI, Sweetalert2, Moment.js,Axios, Leaflet,Midtrans",
+    "deploy": "https://guru-mu.vercel.app",
+    "figma": "https://www.figma.com/file/O8JCdIb1dLtJfaJoa34xk2/GuruMu?type=design&node-id=0-1&t=7ITCxTY3ht8RmIDo-0"
+  },
+  {
+    "id": 5,
+    "title": "Incubate Chicken Eggs",
+    "description": "This project is making a tool that functions as a hatchery for high quality chicken eggs using 2 power sources/hybrid power (electrict and hot steam from sun light), in this project I was given the responsibility to process data sensor from the microcontroller to be sent and stored to the database (mySql) uses the IOT system and the language I use is php, then the data is displayed on the mobile application using the kodular creator.",
+    "technology": "PHP, Kodular Creator, Google Spreedsheet, MySQL, Arduino Mega, ESP-32, ",
+    "deploy": "",
+    "figma": "https://github.com/agungcahya122/Tabel-Monitoring-Penetas-Telur"
+  },
+  {
+    "id": 6,
+    "title": "Extruder Temperature and Discharge Setting",
+    "description": "The extruder temperature needs to be stabilized to accelerate the melting of HDPE plastic, in this process we use a microcontroller and sensor to handle it, using ArduinoIDE for the code. And then, the melting speed must be adjusted to prevent excessive melting of HDPE plastic and the drive components used nema 64 with DM542 modules and for experiments used pronterface software.",
+    "technology": "Arduino IDE, Arduino Nano, Marlin, Arduino Mega, Ramps, Pronterface.",
+    "deploy": "",
+    "figma": "https://github.com/agungcahya122/Extruder"
+  }
+]

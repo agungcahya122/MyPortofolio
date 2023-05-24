@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 
 const Navbar = () => {
   return (
-    <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3, type: "spring" }} className="navbar bg-base-100 py-5 sticky top-0 z-50 ">
+    <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.1, type: "spring" }} className="navbar bg-base-100 py-5 sticky top-0 z-50 ">
       <div className="navbar-start">
       </div>
       <div className="navbar-center flex">

@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import { FC, useState } from 'react'
 import { motion } from 'framer-motion';
 
 interface CardProps {
@@ -13,20 +13,20 @@ interface CardProps {
 }
 
 
-export const Card: FC<CardProps> = ({ no, jobdesc1, jobdesc2, toDetail, image, position, content }) => {
+export const Card: FC<CardProps> = ({ jobdesc1, jobdesc2, toDetail, image, position, content }) => {
   const [nextJob, setNextJob] = useState<boolean>(false)
 
   return (
 
-    <motion.div onClick={() => setNextJob(!nextJob)} initial={{ x: -32, opacity: 0, y: 0 }} whileHover={{ y: -15 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.4, delay: 0.3 }} className={`card w-64 bg-base-100 shadow-xl hover:cursor-pointer hover:shadow-[0px_15px_20px_-1px_rgba(0,0,0,0.25)]`}>
+    <motion.div onClick={() => setNextJob(!nextJob)} initial={{ y: 0 }} whileHover={{ y: -15 }} whileInView={{ transition: { duration: 0.4, delay: 0.1 } }} className={`card w-64 bg-base-100 shadow-xl hover:cursor-pointer hover:shadow-[0px_15px_20px_-1px_rgba(0,0,0,0.25)]`}>
 
-      <motion.div animate={{ opacity: nextJob ? 0 : 1, y: nextJob ? 15 : 0, x: 0 }} transition={{ duration: 0.4, delay: 0.3 }} className={`${nextJob ? "hidden" : "flex"}`}>
+      <motion.div animate={{ opacity: nextJob ? 0 : 1, y: nextJob ? 15 : 0, x: 0 }} transition={{ duration: 0.3, delay: 0.3 }} className={`${nextJob ? "hidden" : "flex"}`}>
         <figure className={`${nextJob ? "hidden" : "flex"} px-4 pt-6 w-full h-44 overflow-hidden`}>
           <img src={image} alt="avatar.jpg" className={`${nextJob ? "hidden" : "flex"}  rounded-xl w-7/12`} />
         </figure>
       </motion.div>
 
-      <motion.div animate={{ opacity: nextJob ? 0 : 1, y: nextJob ? 15 : 0, x: 0 }} transition={{ duration: 0.4, delay: 0.3 }} className={`${nextJob ? "hidden" : "flex"} card-body px-6 py-4`}>
+      <motion.div animate={{ opacity: nextJob ? 0 : 1, y: nextJob ? 15 : 0, x: 0 }} transition={{ duration: 0.3, delay: 0.3 }} className={`${nextJob ? "hidden" : "flex"} card-body px-6 py-4`}>
         <h2 className="card-title text-[16px] font-semibold">{position}</h2>
         <p className='text-[14px] text-text leading-5'>{content}</p>
 
