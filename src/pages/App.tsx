@@ -18,6 +18,8 @@ import Education from "../dummy/education.json"
 import Projects from "../dummy/projects.json"
 import Aboutme from "../dummy/about.json"
 
+import rectangleRight from "../assets/rectangleRight.png"
+import rectangleLeft from "../assets/rectangleLeft.png"
 import Ellpise from "../assets/elipse green.png"
 import Rectangle from "../assets/rectangle.png"
 import Circle from "../assets/Ellipse 15.png"
@@ -114,7 +116,7 @@ const App = () => {
     setDisable(true)
 
     if (form.current) {
-      emailjs.sendForm(`${import.meta.env.YOUR_SERVICE_ID}`, `${import.meta.env.YOUR_TEMPLATE_ID}`, form.current, `${import.meta.env.YOUR_PUBLIC_KEY}`)
+      emailjs.sendForm(`${import.meta.env.VITE_API_KEY_PUBLIC_ID}`, `${import.meta.env.VITE_API_KEY_TEMPLATE_ID}`, form.current, `${import.meta.env.VITE_API_KEY_PUBLIC_KEY}`)
         .then((result) => {
           toast.success("Berhasil mengirimkan email")
           console.log(result.text);
@@ -126,6 +128,7 @@ const App = () => {
           );
         }, (error) => {
           console.log(error.text);
+          toast.error(error.text)
         })
         .finally(() => setDisable(false));
     }
@@ -154,8 +157,8 @@ const App = () => {
   }
 
   const nameAnimate2 = {
-    offscreen: { opacity: 0, y: 20 },
-    onscreen: { opacity: 1, y: 0, transition: { delay: 0.3, duration: 0.6 } }
+    offscreen: { y: 20, opacity: 0 },
+    onscreen: { y: 0, opacity: 1, transition: { delay: 0.3, duration: 0.6 } }
   }
 
   const iconAnimate = {
@@ -198,10 +201,15 @@ const App = () => {
     onscreen: { opacity: 1, y: 0, transition: { duration: 0.6, type: "spring", bounce: 0.3, delay: 0.4 } }
   }
 
+  const minusYSlow = {
+    offscreen: { opacity: 0, y: -30 },
+    onscreen: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.4 } }
+  }
+
   return (
     <Layout>
       <Navbar />
-      <div className='flex justify-between p-8 2xl:mb-60 lg:mb-60 mb-32'>
+      <div className='flex justify-between p-8 2xl:mb-60 lg:mb-60 mb-32 '>
         {/* left */}
         <div className='2xl:pl-32 lg:pl-32 md:pl-8 pl-0 relative'>
           <motion.div transition={{ staggerChildren: 0.2 }} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: false, amount: 0.5 }} className='text-zinc-900 space-y-2'>
@@ -272,9 +280,13 @@ const App = () => {
 
       {/* About Me */}
 
-      <motion.div transition={{ staggerChildren: 0.3 }} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: false, amount: 0.3 }} className="relative">
+      <motion.div transition={{ staggerChildren: 0.3 }} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: false, amount: 0.3 }} className="relative ">
         <motion.h1 variants={textAnimate} className="flex justify-center items-center gap-1 text-[32px] text-zinc-900 font-bold">About me <FaCircle size={10} className='text-hijau mt-4' /></motion.h1>
         <motion.p variants={textAnimate} className="2xl:mt-10 lg:mt-10 md:mt-10 mt-5 mx-auto 2xl:w-7/12 lg:w-7/12 md:w-8/12 w-10/12 text-center">{Aboutme.data}</motion.p>
+
+        <motion.div variants={minusYSlow} className="absolute 2xl:flex lg:flex md:flex hidden 2xl:-top-40 lg:-top-40 -top-52 right-0">
+          <img src={rectangleRight} alt="rectangleRight.png" width="170" />
+        </motion.div>
 
         <motion.div initial={"offscreen"} whileInView={"onscreen"} className="2xl:flex lg:flex md:flex hidden">
           <motion.div variants={aboutmeAnimate} className="w-2 h-2 rounded-full bg-hijau absolute top-[150px] left-10"></motion.div>
@@ -295,7 +307,7 @@ const App = () => {
 
       {/* Education */}
 
-      <motion.div transition={{ staggerChildren: 0.3 }} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: false, amount: 0.2 }} className="relative 2xl:mt-40 lg:mt-40 md:mt-40 mt-28">
+      <motion.div transition={{ staggerChildren: 0.3 }} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: false, amount: 0.2 }} className="relative 2xl:mt-40 lg:mt-40 md:mt-40 mt-28 ">
         <motion.h1 variants={textAnimate} className="flex justify-center items-center gap-1 text-[32px] text-zinc-900 font-bold">Education <FaCircle size={10} className='text-hijau mt-4' /></motion.h1>
         {newEdu.map((data, index) => (
           <motion.div transition={{ staggerChildren: 0.3 }} viewport={{ once: false, amount: 0.2 }} initial={"offscreen"} whileInView={"onscreen"} className="mt-10 2xl:mx-auto lg:mx-auto md:mx-auto mx-14 flex 2xl:flex-row lg:flex-row md:flex-row flex-col justify-center 2xl:gap-10 lg:gap-10 md:gap-6 gap-5 mb-10">
@@ -315,8 +327,15 @@ const App = () => {
 
       {/* Experience */}
 
-      <motion.div initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: false, amount: 0.2 }} className="mt-24 px-16">
+      <motion.div initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: false, amount: 0.2 }} className="relative mt-24 px-16 ">
         <motion.h1 variants={textAnimate} className="flex justify-center items-center gap-1 text-[32px] text-zinc-900 font-bold">Experience <FaCircle size={10} className='text-hijau mt-4' /></motion.h1>
+
+        <motion.div variants={minusYSlow} viewport={{ once: false, amount: 0.5 }} className="absolute 2xl:flex lg:flex md:flex hidden -top-32 left-0">
+          <img src={rectangleLeft} alt="rectangleLeft.png" width="180" />
+        </motion.div>
+        <motion.div variants={minusYSlow} viewport={{ once: false, amount: 0.5 }} className="2xl:flex lg:flex hidden absolute -bottom-[420px] -right-0">
+          <img src={rectangleRight} alt="rectangleRight.png" className="w-full" />
+        </motion.div>
 
         <motion.div variants={experienceAnimate} className="flex flex-wrap justify-center gap-10 mt-14">
           {newExperience.map((item, index) => (
@@ -327,7 +346,6 @@ const App = () => {
               position={item.position}
               jobdesc1={item.jobdesc1}
               jobdesc2={item.jobdesc2}
-            // no={index + 1}
             />
           ))}
         </motion.div>
@@ -335,9 +353,17 @@ const App = () => {
 
       {/* My Project */}
 
-      <motion.div transition={{ staggerChildren: 0.2 }} viewport={{ once: false, amount: 0.2 }} initial={"offscreen"} whileInView={"onscreen"} className="mt-24 px-16">
+      <motion.div transition={{ staggerChildren: 0.2 }} viewport={{ once: false, amount: 0.2 }} initial={"offscreen"} whileInView={"onscreen"} className="relative mt-24 px-16 ">
         <motion.h1 variants={textAnimate} className="text-center text-[28px] text-zinc-900">My Regular Updated</motion.h1>
         <motion.h1 variants={textAnimate} className="flex justify-center items-center gap-1 text-[32px] text-hijau font-semibold">Project <FaCircle size={10} className='text-hijau mt-4' /></motion.h1>
+
+        <motion.div variants={minusYSlow} viewport={{ once: false, amount: 0.5 }} className="absolute 2xl:flex lg:flex md:flex hidden 2xl:-bottom-44 lg:-bottom-44 -bottom-32 left-0">
+          <img src={rectangleLeft} alt="rectangleLeft.png" className="2xl:w-8/12 lg:w-8/12 w-6/12" />
+        </motion.div>
+
+        <motion.div variants={minusYSlow} viewport={{ once: false, amount: 0.7 }} className="2xl:hidden lg:hidden md:flex hidden absolute -top-[200px] -right-0">
+          <img src={rectangleRight} alt="rectangleRight.png" className="w-12/12" />
+        </motion.div>
 
         <motion.div transition={{ staggerChildren: 0.3 }} viewport={{ once: false, amount: 0.2 }} initial={"offscreen"} whileInView={"onscreen"} className="flex flex-wrap justify-center gap-10 mt-14">
           {newProject.map((item) => (
@@ -354,12 +380,12 @@ const App = () => {
 
       {/* Contact Feature */}
 
-      <motion.div transition={{ staggerChildren: 0.3 }} viewport={{ once: false, amount: 0.1 }} initial={"offscreen"} whileInView={"onscreen"} className="mt-24 2xl:px-16 lg:px-16 md:px-16 px-0">
+      <motion.div transition={{ staggerChildren: 0.3 }} viewport={{ once: false, amount: 0.1 }} initial={"offscreen"} whileInView={"onscreen"} className="mt-24 2xl:px-16 lg:px-16 md:px-16 px-0 ">
         <motion.h1 variants={textAnimate} className="flex justify-center items-center gap-1 text-[38px] text-hijau font-semibold">Contact <FaCircle size={10} className='text-hijau mt-4 tracking-widest' /></motion.h1>
 
         <motion.p variants={nameAnimate2} className="text-center text-[16px] text-zinc-900 2xl:w-7/12 lg:w-7/12 md:w-10/12 w-11/12 mx-auto">I am still new to the technologi information, but I will try my best to fulfil the tasks and responsibilities assigned to me, and always learn things that I don't understand so that I can continue to grow.</motion.p>
 
-        <motion.p variants={nameAnimate} className="text-[16px] text-zinc-900 font-semibold text-center mt-16">fill in the form to send an email</motion.p>
+        <motion.p variants={educationAnimate} className="text-[16px] text-zinc-900 font-semibold text-center mt-16">fill in the form to send an email</motion.p>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1, transition: { duration: 0.5, delay: 0.4 } }} className="relative">
           <form ref={form} onSubmit={sendEmail}>
             <CustomInput
@@ -429,11 +455,11 @@ const App = () => {
 
       {/* Tech Stack */}
 
-      <motion.div transition={{ staggerChildren: 0.2 }} viewport={{ once: false, amount: 0.2 }} initial={"offscreen"} whileInView={"onscreen"} className="relative mt-32">
+      <motion.div transition={{ staggerChildren: 0.2 }} viewport={{ once: false, amount: 0.2 }} initial={"offscreen"} whileInView={"onscreen"} className="relative mt-32 ">
         <motion.h1 variants={textAnimate} className="flex justify-center items-center gap-1 text-[32px] text-zinc-900 font-semibold ">Technology Stack <FaCircle size={10} className='text-hijau mt-4' /></motion.h1>
 
-        <motion.p variants={nameAnimate} className="text-center">Some of the technologies or frameworks that I use to complete some of my projects</motion.p>
-        <motion.div transition={{ staggerChildren: 0.1 }} initial={"offscreen"} whileInView={"onscreen"} className="flex flex-row flex-wrap gap-10 justify-center mt-10 px-32">
+        <motion.p variants={textAnimate} className="text-center">Some of the technologies or frameworks that I use to complete some of my projects</motion.p>
+        <motion.div transition={{ staggerChildren: 0.1 }} className="flex flex-row flex-wrap gap-10 justify-center mt-10 px-32">
           <motion.div variants={aboutmeAnimate} className="w-44">
             <img src={react} alt="react.png" />
           </motion.div>
