@@ -69,12 +69,12 @@ const App = () => {
     { "image": Pkk }, { "image": Poltek }
   ])
   const [imagePj] = useState([
-    { "icon": lapakUmkm, "image": [{ Poltek }, { Figma }, { Tailwind }, { Vercel }] },
-    { "icon": Sabilun, "image": [{ Poltek }, { Figma }, { Tailwind }, { Vercel }] },
-    { "icon": goHome, "image": [{ Poltek }, { Figma }, { Tailwind }, { Vercel }] },
-    { "icon": Gurumu, "image": [{ Poltek }, { Figma }, { Tailwind }, { Vercel }] },
-    { "icon": Poltek, "image": [{ Poltek }, { Figma }, { Tailwind }, { Vercel }] },
-    { "icon": Poltek, "image": [{ Poltek }, { Figma }, { Tailwind }, { Vercel }, { react }] }
+    { "icon": lapakUmkm },
+    { "icon": Sabilun },
+    { "icon": goHome },
+    { "icon": Gurumu },
+    { "icon": Poltek },
+    { "icon": Poltek }
   ])
 
   const newEdu = edu.map((item, index) => ({
@@ -88,6 +88,8 @@ const App = () => {
   const newProject = projects.map((item, index) => ({
     ...item, ...imagePj[index]
   }))
+
+  console.log(newProject)
 
   const linkedIn = "https://www.linkedin.com/in/agung-cahya/";
   const gitHub = "https://github.com/agungcahya122";

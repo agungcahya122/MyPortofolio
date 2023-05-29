@@ -9,5 +9,9 @@ export interface DataType {
   jobdesc2?: string,
   title?: string,
   description?: string
-  // image: any
+  image?: any,
+  technology?: string,
+  deploy?: string,
+  figma?: string,
+  github?: string
 }

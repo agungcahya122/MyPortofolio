@@ -5,7 +5,8 @@
     "description": "LapakUMKM is a similar e-commerce app, users can become buyers or sellers. This app has some features there are feature chatting, discussion, user can review a product, logging in with a Google account, theme settings, easy management of products for the seller and feature reporting sales weekly for the seller. To make a design we use Figma, React Typescript, TailwindCSS, React Cookies, React Hook, React Router, Github, and others.",
     "technology": "React-Typescript, React-Cookies, React-Router, React-Icons, React-Oauth,React-Password-Strengthbar,React-Redux, React-Toastify, TailwindCSS, DaisyUI, RadixUI, Lottie-React, Sweetalert2, Currency-Formatter, Axios, Midtrans",
     "deploy": "https://agungcahya.vercel.app",
-    "figma": "https://www.figma.com/file/45bp8KnmNTYApNm7pS3am8/Lapak-UMKM?type=design&node-id=0-1&t=ZTMIl7TZaLF9399V-0"
+    "figma": "https://www.figma.com/file/45bp8KnmNTYApNm7pS3am8/Lapak-UMKM?type=design&node-id=0-1&t=ZTMIl7TZaLF9399V-0",
+    "github": ""
   },
   {
     "id": 2,
@@ -28,6 +29,7 @@
     "title": "GuruMu App",
     "description": "Gurumu is a platform created to make it easier for young people who want to improve their knowledge without any obstacles or obstacles in accessing it. Because the system that is run can use offline or online. The existing features are teacher data verification features, CRUD Users, CRUD learning schedules, and the most superior in determining the location of guidance according to maps. To make a design we use Figma, React Typescript, TailwindCSS, React Cookies, React Hook, React Router, Github, and others.",
     "technology": "React Typescript, React-Router, React-Icons, React-Redux, TailwindCSS, DaisyUI, Sweetalert2, Moment.js,Axios, Leaflet,Midtrans",
+    "github": "https://github.com/agungcahya122/MyPortofolio",
     "deploy": "https://guru-mu.vercel.app",
     "figma": "https://www.figma.com/file/O8JCdIb1dLtJfaJoa34xk2/GuruMu?type=design&node-id=0-1&t=7ITCxTY3ht8RmIDo-0"
   },
