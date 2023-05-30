@@ -89,8 +89,6 @@ const App = () => {
     ...item, ...imagePj[index]
   }))
 
-  console.log(newProject)
-
   const linkedIn = "https://www.linkedin.com/in/agung-cahya/";
   const gitHub = "https://github.com/agungcahya122";
   const whatsApp = "https://api.whatsapp.com/send/?phone=089523894186&text&type=phone_number&app_absent=0";
@@ -211,7 +209,7 @@ const App = () => {
   return (
     <Layout>
       <Navbar />
-      <div className='flex justify-between p-8 2xl:mb-60 lg:mb-60 mb-32 '>
+      <div className='flex justify-between p-8 2xl:mb-60 lg:mb-60 mb-32 mt-24'>
         {/* left */}
         <div className='2xl:pl-32 lg:pl-32 md:pl-8 pl-0 relative'>
           <motion.div transition={{ staggerChildren: 0.2 }} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: false, amount: 0.5 }} className='text-zinc-900 space-y-2'>
@@ -282,7 +280,7 @@ const App = () => {
 
       {/* About Me */}
 
-      <motion.div transition={{ staggerChildren: 0.3 }} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: false, amount: 0.3 }} className="relative ">
+      <motion.div id="aboutme" transition={{ staggerChildren: 0.3 }} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: false, amount: 0.3 }} className=" relative ">
         <motion.h1 variants={textAnimate} className="flex justify-center items-center gap-1 text-[32px] text-zinc-900 font-bold">About me <FaCircle size={10} className='text-hijau mt-4' /></motion.h1>
         <motion.p variants={textAnimate} className="2xl:mt-10 lg:mt-10 md:mt-10 mt-5 mx-auto 2xl:w-7/12 lg:w-7/12 md:w-8/12 w-10/12 text-center">{Aboutme.data}</motion.p>
 
@@ -355,7 +353,7 @@ const App = () => {
 
       {/* My Project */}
 
-      <motion.div transition={{ staggerChildren: 0.2 }} viewport={{ once: false, amount: 0.2 }} initial={"offscreen"} whileInView={"onscreen"} className="relative mt-24 px-16 ">
+      <motion.div id="projects" transition={{ staggerChildren: 0.2 }} viewport={{ once: false, amount: 0.2 }} initial={"offscreen"} whileInView={"onscreen"} className="relative mt-24 px-16 ">
         <motion.h1 variants={textAnimate} className="text-center text-[28px] text-zinc-900">My Regular Updated</motion.h1>
         <motion.h1 variants={textAnimate} className="flex justify-center items-center gap-1 text-[32px] text-hijau font-semibold">Project <FaCircle size={10} className='text-hijau mt-4' /></motion.h1>
 
@@ -382,7 +380,7 @@ const App = () => {
 
       {/* Contact Feature */}
 
-      <motion.div transition={{ staggerChildren: 0.3 }} viewport={{ once: false, amount: 0.1 }} initial={"offscreen"} whileInView={"onscreen"} className="mt-24 2xl:px-16 lg:px-16 md:px-16 px-0 ">
+      <motion.div id="contact" transition={{ staggerChildren: 0.3 }} viewport={{ once: false, amount: 0.1 }} initial={"offscreen"} whileInView={"onscreen"} className="mt-24 2xl:px-16 lg:px-16 md:px-16 px-0 ">
         <motion.h1 variants={textAnimate} className="flex justify-center items-center gap-1 text-[38px] text-hijau font-semibold">Contact <FaCircle size={10} className='text-hijau mt-4 tracking-widest' /></motion.h1>
 
         <motion.p variants={nameAnimate2} className="text-center text-[16px] text-zinc-900 2xl:w-7/12 lg:w-7/12 md:w-10/12 w-11/12 mx-auto">I am still new to the technologi information, but I will try my best to fulfil the tasks and responsibilities assigned to me, and always learn things that I don't understand so that I can continue to grow.</motion.p>

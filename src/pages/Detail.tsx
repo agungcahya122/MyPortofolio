@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { motion as m } from 'framer-motion'
 
+import "../styles/app.css"
+
 import Layout from '../components/Layout'
 
 import { DataType } from '../utils/DataType'
@@ -11,6 +13,7 @@ import lapak1 from "../assets/lapak1.png"
 import lapak2 from "../assets/lapak2.png"
 import lapak3 from "../assets/lapak3.png"
 
+import { IoArrowBackCircleSharp } from "react-icons/io5"
 import { HiBookmark } from "react-icons/hi2"
 
 
@@ -18,7 +21,6 @@ const Detail = () => {
   const { id } = useParams()
   const [data,] = useState<DataType[]>(projects)
   const [dataDetail, setDataDetail] = useState<DataType>({})
-  const [image, setImage] = useState<DataType>({})
 
   const imagePj = [
     { "id": 1, "image": [{ lapak1 }, { lapak2 }, { lapak3 }] },
@@ -29,47 +31,44 @@ const Detail = () => {
     { "id": 6, "image": [{ lapak1 }, { lapak2 }, { lapak3 }] }
   ]
 
-  // console.log(imagePj)
-
-  const newImage = async (id: string) => {
-    const newDataImage = imagePj.filter(item => item.id === parseInt(id))
-    setImage(newDataImage[0])
-  }
-
-  const newData = async (id: string) => {
-    const newDataDetail = data.filter(item => parseInt(id) === item.id);
-    setDataDetail(newDataDetail[0])
+  const newData = (id: string) => {
+    const dataDetails = data.map((item, index) => ({
+      ...item, ...imagePj[index]
+    }))
+    const newDataDetails = dataDetails.filter((item) => item.id === parseInt(id))
+    setDataDetail(newDataDetails[0])
   }
 
   useEffect(() => {
     if (id) {
-      newImage(id)
       newData(id)
     }
-  }, [])
+  }, [id])
 
-  if (image) {
-    dataDetail.image = image.image;
-  }
-
+  console.log(dataDetail)
   const opacityAnimate = {
     offscreen: { opacity: 0, x: -20 },
     onscreen: { opacity: 1, x: 0, transition: { duration: 0.8 } }
   }
 
-  console.log(dataDetail)
   return (
     <Layout>
-      <m.h1 variants={opacityAnimate} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: false, amount: 0.2 }} className='text-hijau font-semibold tracking-widest px-16 text-[28px] mt-6'>| Detail Project</m.h1>
-      <m.div initial={"offscreen"} whileInView={"onscreen"} transition={{ staggerChildren: 0.5 }} viewport={{ once: false, amount: 0.2 }} className='flex justify-center px-10 gap-14 '>
-        <m.div variants={opacityAnimate} className='w-7/12'>
+      <m.h1 variants={opacityAnimate} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: false, amount: 0.2 }} className='text-hijau TextShadow font-semibold tracking-widest px-16 text-[28px] mt-6'>| Detail Project</m.h1>
+
+      <m.div variants={opacityAnimate} initial={"offscreen"} whileInView={"onscreen"} className='absolute flex items-end text-hijau hover:text-green-300 hover:cursor-pointer gap-1 top-6 right-12'>
+        <IoArrowBackCircleSharp size={30} className="shadow-[0px_0px_0px_0px_rgba(4px,5px,10px,0px,0.5)]" />
+        <p className='TextShadow tracking-widest text-[18px] font-semibold'>Kembali</p>
+      </m.div>
+
+      <m.div initial={"offscreen"} whileInView={"onscreen"} transition={{ staggerChildren: 0.5 }} viewport={{ once: false, amount: 0.2 }} className='flex justify-center px-10 gap-14 mb-10 '>
+        <m.div variants={opacityAnimate} className='w-8/12'>
           <div className="mt-6 flex justify-center rounded-xl h-[60%] overflow-hidden shadow-[-2px_2px_4px_-1px_rgba(100,100,100,0.5)]">
-            <img src={lapak3} alt="image.png" className='' />
+            <img src={lapak1} alt="image.png" className='' />
           </div>
 
           <p className='text-[18px] text-zinc-800 tracking-wider font-semibold mt-8 '>Author :</p>
 
-          <div className='flex flex-wrap gap-x-6 mb-10'>
+          <div className='flex flex-wrap gap-x-6'>
             <div className="flex items-center gap-2 mt-5">
               <div className="h-10 w-10 overflow-hidden rounded-full bg-contain"
                 style={{
@@ -133,7 +132,7 @@ const Detail = () => {
 
           <div className='flex gap-2 text-[14px] text-hijau font-semibold pb-3 border-b-[1.6px] mt-6'> <p className='text-zinc-800 '>Github :</p> <a href={dataDetail.github} target='_blank'>https://github.com</a></div>
 
-          <div className='flex gap-4 text-[14px] text-hijau font-semibold pb-3 border-b-[1.6px] mt-6'> <p className='text-zinc-800 '>Tech : </p> Figma, React Typescript, Tailwind CSS, DaisyUI, Framer Motion, dll Figma, React Typescript, Tailwind CSS, DaisyUI, Framer Motion, dll</div>
+          <div className='flex gap-4 text-[14px] text-hijau font-semibold pb-3 border-b-[1.6px] mt-6'> <p className='text-zinc-800 '>Tech : </p> {dataDetail.technology}</div>
         </m.div>
       </m.div>
 
