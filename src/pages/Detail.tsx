@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { motion as m } from 'framer-motion'
 
 import "../styles/app.css"
@@ -15,10 +15,12 @@ import lapak3 from "../assets/lapak3.png"
 
 import { IoArrowBackCircleSharp } from "react-icons/io5"
 import { HiBookmark } from "react-icons/hi2"
+import Navbar from '../components/Navbar'
 
 
 const Detail = () => {
   const { id } = useParams()
+  const navigtae = useNavigate()
   const [data,] = useState<DataType[]>(projects)
   const [dataDetail, setDataDetail] = useState<DataType>({})
 
@@ -53,14 +55,9 @@ const Detail = () => {
 
   return (
     <Layout>
-      <m.h1 variants={opacityAnimate} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: false, amount: 0.2 }} className='text-hijau TextShadow font-semibold tracking-widest px-16 text-[28px] mt-6'>| Detail Project</m.h1>
+      <m.h1 variants={opacityAnimate} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: true }} className='text-hijau TextShadow font-semibold tracking-widest px-16 text-[28px] mt-6'>| Detail Project</m.h1>
 
-      <m.div variants={opacityAnimate} initial={"offscreen"} whileInView={"onscreen"} className='absolute flex items-end text-hijau hover:text-green-300 hover:cursor-pointer gap-1 top-6 right-12'>
-        <IoArrowBackCircleSharp size={30} className="shadow-[0px_0px_0px_0px_rgba(4px,5px,10px,0px,0.5)]" />
-        <p className='TextShadow tracking-widest text-[18px] font-semibold'>Kembali</p>
-      </m.div>
-
-      <m.div initial={"offscreen"} whileInView={"onscreen"} transition={{ staggerChildren: 0.5 }} viewport={{ once: false, amount: 0.2 }} className='flex justify-center px-10 gap-14 mb-10 '>
+      <m.div initial={"offscreen"} whileInView={"onscreen"} transition={{ staggerChildren: 0.5 }} viewport={{ once: true }} className='flex justify-center px-10 gap-14 mb-10 '>
         <m.div variants={opacityAnimate} className='w-8/12'>
           <div className="mt-6 flex justify-center rounded-xl h-[60%] overflow-hidden shadow-[-2px_2px_4px_-1px_rgba(100,100,100,0.5)]">
             <img src={lapak1} alt="image.png" className='' />
@@ -136,6 +133,10 @@ const Detail = () => {
         </m.div>
       </m.div>
 
+      <m.div variants={opacityAnimate} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: true }} className='absolute flex items-end text-hijau hover:text-emerald-500 hover:cursor-pointer gap-1 top-6 right-12'>
+        <IoArrowBackCircleSharp size={30} className="shadow-[0px_0px_0px_0px_rgba(4px,5px,10px,0px,0.5)]" />
+        <p onClick={() => navigtae(`/`)} className='TextShadow tracking-widest text-[18px] font-semibold'>Kembali</p>
+      </m.div>
     </Layout >
   )
 }
