@@ -24,12 +24,21 @@ import Ellpise from "../assets/elipse green.png"
 import Rectangle from "../assets/rectangle.png"
 import Circle from "../assets/Ellipse 15.png"
 import Tailwind from "../assets/tailwind.png"
+import Sabilun1 from "../assets/sabilun1.png"
+import Sabilun2 from "../assets/sabilun2.png"
+import Sabilun3 from "../assets/sabilun3.png"
 import Poltek from "../assets/polinema2.png"
 import Overlay from "../assets/overlay.png"
 import lapakUmkm from "../assets/lapak.png"
 import Sabilun from "../assets/sabilun.png"
 import Dribble from "../assets/dribble.png"
 import Behance from "../assets/behance.png"
+import GoHome1 from "../assets/goHome1.png"
+import GoHome2 from "../assets/goHome2.png"
+import GoHome3 from "../assets/goHome3.png"
+import Gurumu1 from "../assets/gurumu1.png"
+import Gurumu2 from "../assets/gurumu2.png"
+import Gurumu3 from "../assets/gurumu3.png"
 import White from "../assets/white bg.png"
 import Green from "../assets/green bg.png"
 import Google from "../assets/google.png"
@@ -73,11 +82,11 @@ const App = () => {
   ])
   const [imagePj] = useState([
     { "icon": lapakUmkm, "image": [Lapak1, Lapak2, Lapak3] },
-    { "icon": Sabilun },
-    { "icon": goHome },
-    { "icon": Gurumu },
-    { "icon": Poltek },
-    { "icon": Poltek }
+    { "icon": Sabilun, "image": [Sabilun1, Sabilun2, Sabilun3] },
+    { "icon": goHome, "image": [GoHome1, GoHome2, GoHome3] },
+    { "icon": Gurumu, "image": [Gurumu1, Gurumu2, Gurumu3] },
+    { "icon": Poltek, "image": [Lapak1, Lapak2, Lapak3] },
+    { "icon": Poltek, "image": [Lapak1, Lapak2, Lapak3] }
   ])
 
   const newEdu = edu.map((item, index) => ({
