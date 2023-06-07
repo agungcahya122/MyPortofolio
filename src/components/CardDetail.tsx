@@ -8,14 +8,15 @@ interface CardProps {
   position?: string;
   content?: string;
   cek?: any;
+  data?: {};
 }
 
-const CardDetail: FC<CardProps> = ({ id, cek, image, position, content }) => {
+const CardDetail: FC<CardProps> = ({ data, id, cek, image, position, content }) => {
 
   const navigate = useNavigate()
 
   const toDetail = () => {
-    navigate(`/detail/${id}`)
+    navigate(`/detail/${id}`, { state: { dataDetail: data } })
   }
 
   return (

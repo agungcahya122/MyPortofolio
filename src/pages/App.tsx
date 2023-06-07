@@ -34,6 +34,9 @@ import White from "../assets/white bg.png"
 import Green from "../assets/green bg.png"
 import Google from "../assets/google.png"
 import Vercel from "../assets/vercel.png"
+import Lapak1 from "../assets/lapak1.png"
+import Lapak2 from "../assets/lapak2.png"
+import Lapak3 from "../assets/lapak3.png"
 import goHome from "../assets/gohome.png"
 import Gurumu from "../assets/gurumu.png"
 import Avatar from "../assets/avatar.png"
@@ -69,7 +72,7 @@ const App = () => {
     { "image": Pkk }, { "image": Poltek }
   ])
   const [imagePj] = useState([
-    { "icon": lapakUmkm },
+    { "icon": lapakUmkm, "image": [Lapak1, Lapak2, Lapak3] },
     { "icon": Sabilun },
     { "icon": goHome },
     { "icon": Gurumu },
@@ -373,6 +376,7 @@ const App = () => {
               content={item.description}
               position={item.title}
               cek={educationAnimate}
+              data={item}
             />
           ))}
         </motion.div>

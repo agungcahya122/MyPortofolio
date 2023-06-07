@@ -1,56 +1,73 @@
-import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { motion as m } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
 import "../styles/app.css"
 
 import Layout from '../components/Layout'
 
 import { DataType } from '../utils/DataType'
-import projects from "../dummy/projects.json"
 
-import lapak1 from "../assets/lapak1.png"
-import lapak2 from "../assets/lapak2.png"
-import lapak3 from "../assets/lapak3.png"
-
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md"
 import { IoArrowBackCircleSharp } from "react-icons/io5"
 import { HiBookmark } from "react-icons/hi2"
-import Navbar from '../components/Navbar'
 
 
 const Detail = () => {
-  const { id } = useParams()
+  const location = useLocation()
   const navigtae = useNavigate()
-  const [data,] = useState<DataType[]>(projects)
-  const [dataDetail, setDataDetail] = useState<DataType>({})
+  const [dataDetail,] = useState<DataType>(location.state.dataDetail)
+  const [index, setIndex] = useState<number>(0)
+  const [sliding, setSliding] = useState<number>(500)
 
-  const imagePj = [
-    { "id": 1, "image": [{ lapak1 }, { lapak2 }, { lapak3 }] },
-    { "id": 2, "image": [{ lapak1 }, { lapak2 }, { lapak3 }] },
-    { "id": 3, "image": [{ lapak1 }, { lapak2 }, { lapak3 }] },
-    { "id": 4, "image": [{ lapak1 }, { lapak2 }, { lapak3 }] },
-    { "id": 5, "image": [{ lapak1 }, { lapak2 }, { lapak3 }] },
-    { "id": 6, "image": [{ lapak1 }, { lapak2 }, { lapak3 }] }
-  ]
+  const nextSlide = () => {
+    if (index >= 2) {
+      setSliding(500)
+      setIndex(0)
+    } else {
+      setSliding(500)
+      setIndex(index + 1)
+    }
+  }
 
-  const newData = (id: string) => {
-    const dataDetails = data.map((item, index) => ({
-      ...item, ...imagePj[index]
-    }))
-    const newDataDetails = dataDetails.filter((item) => item.id === parseInt(id))
-    setDataDetail(newDataDetails[0])
+  const prevSlide = () => {
+    if (index <= 0) {
+      setSliding(-500)
+      setIndex(2)
+    } else {
+      setSliding(-500)
+      setIndex(index - 1)
+    }
+  }
+
+  const autoSlide = (index: number) => {
+    setTimeout(() => {
+      if (index >= 2) {
+        setIndex(0)
+      } else {
+        setIndex(index + 1)
+      }
+    }, 5000);
   }
 
   useEffect(() => {
-    if (id) {
-      newData(id)
-    }
-  }, [id])
+    autoSlide(index)
+  }, [index])
 
-  console.log(dataDetail)
   const opacityAnimate = {
     offscreen: { opacity: 0, x: -20 },
     onscreen: { opacity: 1, x: 0, transition: { duration: 0.8 } }
+  }
+
+  const opacity2Animate = {
+    offHover: { opacity: 0 },
+    onHover: { opacity: 1, transition: { duration: 0.4 } }
+  }
+
+  const variants = {
+    offScreen: { x: (sliding), opacity: 0, transition: { x: { type: 'spring', stiffness: 300, damping: 30 } } },
+    exit: { x: -(sliding), opacity: 0, transition: { duration: 0.6, x: { type: 'spring', stiffness: 300, damping: 30 } } },
+    onScreen: { x: 0, opacity: 1, transition: { duration: 0.6, x: { type: 'spring', stiffness: 300, damping: 30 } } },
   }
 
   return (
@@ -58,9 +75,24 @@ const Detail = () => {
       <m.h1 variants={opacityAnimate} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: true }} className='text-hijau TextShadow font-semibold tracking-widest px-16 text-[28px] mt-6'>| Detail Project</m.h1>
 
       <m.div initial={"offscreen"} whileInView={"onscreen"} transition={{ staggerChildren: 0.5 }} viewport={{ once: true }} className='flex justify-center px-10 gap-14 mb-10 '>
-        <m.div variants={opacityAnimate} className='w-8/12'>
-          <div className="mt-6 flex justify-center rounded-xl h-[60%] overflow-hidden shadow-[-2px_2px_4px_-1px_rgba(100,100,100,0.5)]">
-            <img src={lapak1} alt="image.png" className='' />
+        <m.div variants={opacityAnimate} className='w-8/12 mt-7'>
+          <div className='relative h-[60%] overflow-hidden shadow-[-2px_2px_4px_-1px_rgba(100,100,100,0.5)] rounded-xl'>
+            {/* <AnimatePresence initial={false}> */}
+            <m.img src={dataDetail.image[index]} variants={variants} initial="offScreen" animate="onScreen" exit={"exit"} key={dataDetail.image[index]} alt="gambar dokumentasi" className='w-full' style={{ aspectRatio: (16 / 8) }} />
+
+            {/* <m.div variants={variants} initial="offScreen" animate="onScreen" exit="leftScreen" key={dataDetail.image[index]} className="rounded-xl h-full shadow-[-2px_2px_4px_-1px_rgba(100,100,100,0.5)] bg-no-repeat bg-cover" style={{ backgroundImage: `url(${dataDetail.image[index]})` }}>
+            </m.div> */}
+            {/* </AnimatePresence> */}
+
+            <m.div variants={opacity2Animate} whileHover={"onHover"} initial={"offHover"} className='absolute inset-2 flex items-center justify-between'>
+              <div onClick={() => prevSlide()} className='cursor-pointer bg-black/10 rounded-full hover:bg-black/25'>
+                <MdKeyboardArrowLeft size={35} />
+              </div>
+
+              <div onClick={() => nextSlide()} className='cursor-pointer bg-black/10 rounded-full hover:bg-black/25'>
+                <MdKeyboardArrowRight size={35} className="" />
+              </div>
+            </m.div>
           </div>
 
           <p className='text-[18px] text-zinc-800 tracking-wider font-semibold mt-8 '>Author :</p>
