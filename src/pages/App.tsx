@@ -23,7 +23,7 @@ import rectangleLeft from "../assets/rectangleLeft.png"
 import Ellpise from "../assets/elipse green.png"
 import Rectangle from "../assets/rectangle.png"
 import Circle from "../assets/Ellipse 15.png"
-import Tailwind from "../assets/tailwind.png"
+import Tailwind from "../assets/tailwind.jpg"
 import Sabilun1 from "../assets/sabilun1.png"
 import Sabilun2 from "../assets/sabilun2.png"
 import Sabilun3 from "../assets/sabilun3.png"
@@ -42,7 +42,7 @@ import Gurumu3 from "../assets/gurumu3.png"
 import White from "../assets/white bg.png"
 import Green from "../assets/green bg.png"
 import Google from "../assets/google.png"
-import Vercel from "../assets/vercel.png"
+import Vercel from "../assets/vercel.jpg"
 import Lapak1 from "../assets/lapak1.png"
 import Lapak2 from "../assets/lapak2.png"
 import Lapak3 from "../assets/lapak3.png"
@@ -51,7 +51,7 @@ import Gurumu from "../assets/gurumu.png"
 import Avatar from "../assets/avatar.png"
 import Slash from "../assets/garing.png"
 import Altera from "../assets/alta.png"
-import Figma from "../assets/figma.png"
+import Figma from "../assets/figma.jpg"
 import react from "../assets/react.png"
 import Plus from "../assets/plus.png"
 import Pkk from "../assets/pkk.png"
@@ -247,7 +247,7 @@ const App = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1, transition: { duration: 1, delay: 0.5 } }} viewport={{ once: false, amount: 0.5 }}>
-            <CustomButton onClick={pdfDownload} id='btn-cv' size='4/12' label='My Cover Letter' />
+            <CustomButton onClick={pdfDownload} id='btn-cv' size='2xl:4/12 lg:4/12 md:4/12 5/12' label='My Cover Letter' />
           </motion.div>
 
           <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1, scale: [0.8, 1, 1, 0.8], transition: { duration: 2, delay: 1, repeat: Infinity } }} viewport={{ once: false, amount: 0.5 }} className='absolute 2xl:top-[168px] lg:top-[168px] md:top-[168px] top-[150px] 2xl:right-[135px] lg:right-[135px] md:right-[135px] right-[20px] bg-hijau rounded-full shadow-[0px_0px_20px_12px_rgba(89,123,106,0.8)]'></motion.img>
@@ -393,7 +393,7 @@ const App = () => {
 
       {/* Contact Feature */}
 
-      <motion.div id="contact" transition={{ staggerChildren: 0.3 }} viewport={{ once: false, amount: 0.1 }} initial={"offscreen"} whileInView={"onscreen"} className="mt-24 2xl:px-16 lg:px-16 md:px-16 px-0 ">
+      <motion.div id="contact" transition={{ staggerChildren: 0.3 }} viewport={{ once: false, amount: 0.1 }} initial={"offscreen"} whileInView={"onscreen"} className="mt-24 2xl:px-16 lg:px-16 md:px-16 px-1 ">
         <motion.h1 variants={textAnimate} className="flex justify-center items-center gap-1 text-[38px] text-hijau font-semibold">Contact <FaCircle size={10} className='text-hijau mt-4 tracking-widest' /></motion.h1>
 
         <motion.p variants={nameAnimate2} className="text-center text-[16px] text-zinc-900 2xl:w-7/12 lg:w-7/12 md:w-10/12 w-11/12 mx-auto">I am still new to the technologi information, but I will try my best to fulfil the tasks and responsibilities assigned to me, and always learn things that I don't understand so that I can continue to grow.</motion.p>
@@ -468,30 +468,30 @@ const App = () => {
 
       {/* Tech Stack */}
 
-      <motion.div transition={{ staggerChildren: 0.2 }} viewport={{ once: false, amount: 0.2 }} initial={"offscreen"} whileInView={"onscreen"} className="relative mt-32 ">
+      <motion.div transition={{ staggerChildren: 0.2 }} viewport={{ once: false, amount: 0.2 }} initial={"offscreen"} whileInView={"onscreen"} className="relative mt-32 2xl:px-0 lg:px-0 md:px-0 px-2">
         <motion.h1 variants={textAnimate} className="flex justify-center items-center gap-1 text-[32px] text-zinc-900 font-semibold ">Technology Stack <FaCircle size={10} className='text-hijau mt-4' /></motion.h1>
 
         <motion.p variants={textAnimate} className="text-center">Some of the technologies or frameworks that I use to complete some of my projects</motion.p>
-        <motion.div transition={{ staggerChildren: 0.1 }} className="flex flex-row flex-wrap gap-10 justify-center mt-10 px-32">
-          <motion.div variants={aboutmeAnimate} className="w-44">
+        <motion.div transition={{ staggerChildren: 0.1 }} className="flex flex-row flex-wrap gap-10 justify-center mt-10 2xl:px-32 lg:px-32 md:px-32 px-2">
+          <motion.div variants={aboutmeAnimate} className="flex items-center 2xl:w-44 lg:w-44 md:w-44 w-28">
             <img src={react} alt="react.png" />
           </motion.div>
-          <motion.div variants={aboutmeAnimate} className="w-40 -mt-4">
+          <motion.div variants={aboutmeAnimate} className="flex items-center 2xl:w-40 lg:w-40 md:w-40 w-28">
             <img src={Figma} alt="react.png" />
           </motion.div>
-          <motion.div variants={aboutmeAnimate} className="w-64 -mt-10">
+          <motion.div variants={aboutmeAnimate} className="flex items-center 2xl:w-64 lg:w-64 md:w-64 w-36">
             <img src={Tailwind} alt="react.png" />
           </motion.div>
-          <motion.div variants={aboutmeAnimate} className="w-52 -mt-12 -z-40">
+          <motion.div variants={aboutmeAnimate} className="flex items-center 2xl:w-52 xl:w-52 lg:w-52 md:w-52 w-32 -z-40">
             <img src={Vercel} alt="react.png" />
           </motion.div>
-          <motion.div variants={aboutmeAnimate} className="w-40">
+          <motion.div variants={aboutmeAnimate} className="2xl:w-40 lg:w-40 md:w-40 w-28">
             <img src={Dribble} alt="react.png" />
           </motion.div>
-          <motion.div variants={aboutmeAnimate} className="w-40">
+          <motion.div variants={aboutmeAnimate} className="2xl:w-40 lg:w-40 md:w-40 w-28">
             <img src={Google} alt="react.png" />
           </motion.div>
-          <motion.div variants={aboutmeAnimate} className="w-40 -mt-1">
+          <motion.div variants={aboutmeAnimate} className="2xl:w-40 lg:w-40 md:w-40 w-28 -mt-1">
             <img src={Behance} alt="react.png" />
           </motion.div>
         </motion.div>

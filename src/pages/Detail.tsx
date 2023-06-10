@@ -72,12 +72,34 @@ const Detail = () => {
 
   return (
     <Layout>
-      <m.h1 variants={opacityAnimate} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: true }} className='text-hijau TextShadow font-semibold tracking-widest px-16 text-[28px] mt-6'>| Detail Project</m.h1>
+      <m.h1 variants={opacityAnimate} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: true }} className='2xl:block lg:block hidden text-hijau TextShadow font-semibold tracking-widest 2xl:px-16 lg:px-16 md:px-10 px-5 2xl:text-[28px] lg:text-[28px] md:text-[28px] text-[20px] mt-6'>| Detail Project</m.h1>
 
-      <m.div initial={"offscreen"} whileInView={"onscreen"} transition={{ staggerChildren: 0.5 }} viewport={{ once: true }} className='flex justify-center px-10 gap-14 mb-10 '>
-        <m.div variants={opacityAnimate} className='w-8/12 mt-7'>
+      <h1 className='2xl:hidden lg:hidden md:flex flex gap-2 items-center md:px-10 px-4 mt-8 md:text-[22px] text-[20px] font-medium'><HiBookmark size={25} /> {dataDetail.title} |</h1>
+
+      <m.div initial={"offscreen"} whileInView={"onscreen"} transition={{ staggerChildren: 0.5 }} viewport={{ once: true }} className='flex 2xl:flex-row lg:flex-row flex-col justify-center 2xl:px-10 lg:px-10 md:px-10 px-5 gap-14 mb-10 '>
+        <m.div variants={opacityAnimate} className='2xl:w-8/12 lg:w-8/12 w-full mt-7'>
           <div className='relative h-[60%] overflow-hidden shadow-[-2px_2px_4px_-1px_rgba(100,100,100,0.5)] rounded-xl'>
             {/* <AnimatePresence initial={false}> */}
+
+            {/* <div className="carousel w-full">
+              <div id="slide1" className="carousel-item relative w-full">
+                <img src="/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" className="w-full" />
+              </div>
+              <div id="slide2" className="carousel-item relative w-full">
+                <img src="/images/stock/photo-1609621838510-5ad474b7d25d.jpg" className="w-full" />
+              </div>
+              <div id="slide3" className="carousel-item relative w-full">
+                <img src="/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
+              </div>
+              <div id="slide4" className="carousel-item relative w-full">
+                <img src={dataDetail.image[0]} className="w-full" />
+                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                  <a href="#slide3" className="btn btn-circle">❮</a>
+                  <a href="#slide1" className="btn btn-circle">❯</a>
+                </div>
+              </div>
+            </div> */}
+
             <m.img src={dataDetail.image[index]} variants={variants} initial="offScreen" animate="onScreen" exit={"exit"} key={dataDetail.image[index]} alt="gambar dokumentasi" className='w-full' style={{ aspectRatio: (16 / 8) }} />
 
             {/* <m.div variants={variants} initial="offScreen" animate="onScreen" exit="leftScreen" key={dataDetail.image[index]} className="rounded-xl h-full shadow-[-2px_2px_4px_-1px_rgba(100,100,100,0.5)] bg-no-repeat bg-cover" style={{ backgroundImage: `url(${dataDetail.image[index]})` }}>
@@ -151,9 +173,12 @@ const Detail = () => {
           </div>
         </m.div>
 
-        <m.div variants={opacityAnimate} className='text-zinc-800 w-4/12 '>
-          <h1 className='flex gap-2 items-center mt-5 text-[20px] font-medium'><HiBookmark size={25} /> {dataDetail.title} |</h1>
-          <p className='text-justify mt-5 leading-6 text-[14px] pb-3 border-b-[1.6px]'>{dataDetail.description}</p>
+        <m.div variants={opacityAnimate} className='text-zinc-800 2xl:w-4/12 lg:w-4/12 w-full '>
+          <h1 className='2xl:flex lg:flex hidden gap-2 items-center mt-5 text-[20px] font-medium'><HiBookmark size={25} /> {dataDetail.title} |</h1>
+
+          <m.h1 variants={opacityAnimate} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: true }} className='2xl:hidden lg:hidden block text-zinc-900 font-semibold tracking-normal px-0 md:text-[22px] text-[20px]'>| Detail Project</m.h1>
+
+          <p className='text-justify 2xl:mt-5 lg:mt-5 mt-2 leading-6 text-[14px] pb-3 border-b-[1.6px]'>{dataDetail.description}</p>
 
           <div className='flex gap-2 text-[14px] text-hijau font-semibold pb-3 border-b-[1.6px] mt-6'> <p className='text-zinc-800 '>Website :</p> <a href={dataDetail.deploy} target='_blank'>{dataDetail.deploy}</a></div>
 
@@ -165,9 +190,9 @@ const Detail = () => {
         </m.div>
       </m.div>
 
-      <m.div variants={opacityAnimate} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: true }} className='absolute flex items-end text-hijau hover:text-emerald-500 hover:cursor-pointer gap-1 top-6 right-12'>
-        <IoArrowBackCircleSharp size={30} className="shadow-[0px_0px_0px_0px_rgba(4px,5px,10px,0px,0.5)]" />
-        <p onClick={() => navigtae(`/`)} className='TextShadow tracking-widest text-[18px] font-semibold'>Kembali</p>
+      <m.div variants={opacityAnimate} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: true }} className='absolute flex items-end text-hijau hover:text-emerald-500 hover:cursor-pointer gap-1 2xl:top-6 lg:top-6 md:top-7 top-9 2xl:right-12 lg:right-12 md:right-12 right-5'>
+        <IoArrowBackCircleSharp size={30} className="2xl:inline lg:inline md:inline hidden shadow-[0px_0px_0px_0px_rgba(4px,5px,10px,0px,0.5)]" />
+        <p onClick={() => navigtae(`/`)} className='TextShadow tracking-widest 2xl:text-[18px] lg:text-[18px] md:text-[18px] text-[16px] font-semibold'>Kembali</p>
       </m.div>
     </Layout >
   )
