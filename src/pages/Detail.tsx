@@ -80,7 +80,7 @@ const Detail = () => {
 
       <m.div initial={"offscreen"} whileInView={"onscreen"} transition={{ staggerChildren: 0.5 }} viewport={{ once: true }} className='flex 2xl:flex-row lg:flex-row flex-col justify-center 2xl:px-10 lg:px-10 md:px-10 px-5 gap-14 mb-10 '>
         <m.div variants={opacityAnimate} className='2xl:w-8/12 lg:w-8/12 w-full mt-7'>
-          <div className='relative w-full h-[60%] flex overflow-hidden shadow-[-2px_2px_4px_-1px_rgba(100,100,100,0.5)] rounded-xl'>
+          <div className='relative w-full h-[60vh] flex overflow-hidden shadow-[-2px_2px_4px_-1px_rgba(100,100,100,0.5)] rounded-xl'>
 
             <AnimatePresence initial={false}>
               <m.div
@@ -89,7 +89,7 @@ const Detail = () => {
                 initial={"offScreen"}
                 exit={"exit"}
                 key={dataDetail.image[index]}
-                style={{ backgroundImage: `url(${dataDetail.image[index]})`, aspectRatio: (19 / 8) }} className='w-full h-full bg-cover bg-no-repeat absolute top-0 left-0' >
+                style={{ backgroundImage: `url(${dataDetail.image[index]})` }} className='w-full h-[100%] bg-cover bg-no-repeat absolute top-0 left-0' >
               </m.div>
             </AnimatePresence>
 
