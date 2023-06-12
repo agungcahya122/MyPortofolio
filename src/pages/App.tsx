@@ -129,7 +129,7 @@ const App = () => {
 
     if (form.current) {
       emailjs.sendForm(`${import.meta.env.VITE_API_KEY_PUBLIC_ID}`, `${import.meta.env.VITE_API_KEY_TEMPLATE_ID}`, form.current, `${import.meta.env.VITE_API_KEY_PUBLIC_KEY}`)
-        .then((result) => {
+        .then(() => {
           toast.success("Berhasil mengirimkan email")
           Array.from(document.querySelectorAll("input")).forEach(
             (input) => (input.value = "")
