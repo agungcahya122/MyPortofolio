@@ -186,9 +186,9 @@ const Detail = () => {
         </m.div>
       </m.div>
 
-      <m.div variants={opacityAnimate} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: true }} className='absolute flex items-end text-hijau hover:text-emerald-500 hover:cursor-pointer gap-1 2xl:top-6 lg:top-6 md:top-7 top-9 2xl:right-12 lg:right-12 md:right-12 right-5'>
+      <m.div onClick={() => navigtae(`/`)} variants={opacityAnimate} initial={"offscreen"} whileInView={"onscreen"} viewport={{ once: true }} className='absolute flex items-end text-hijau hover:text-emerald-500 hover:cursor-pointer gap-1 2xl:top-6 lg:top-6 md:top-7 top-9 2xl:right-12 lg:right-12 md:right-12 right-5'>
         <IoArrowBackCircleSharp size={30} className="2xl:inline lg:inline md:inline hidden shadow-[0px_0px_0px_0px_rgba(4px,5px,10px,0px,0.5)]" />
-        <p onClick={() => navigtae(`/`)} className='TextShadow tracking-widest 2xl:text-[18px] lg:text-[18px] md:text-[18px] text-[16px] font-semibold'>Kembali</p>
+        <p className='TextShadow tracking-widest 2xl:text-[18px] lg:text-[18px] md:text-[18px] text-[16px] font-semibold'>Kembali</p>
       </m.div>
     </Layout >
   )
