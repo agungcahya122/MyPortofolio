@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion as m } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import "../styles/app.css"
 
