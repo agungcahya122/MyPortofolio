@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom'
-import { motion as m } from 'framer-motion'
+import { AnimatePresence, motion as m } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 import "../styles/app.css"
@@ -21,38 +21,40 @@ const Detail = () => {
   const [sliding, setSliding] = useState<number>(500)
 
   const nextSlide = () => {
+    setSliding(500)
     if (index >= 2) {
-      setSliding(500)
       setIndex(0)
+      return
     } else {
-      setSliding(500)
+      // setSliding(500)
       setIndex(index + 1)
     }
   }
 
   const prevSlide = () => {
+    setSliding(-500)
     if (index <= 0) {
-      setSliding(-500)
       setIndex(2)
+      return
     } else {
-      setSliding(-500)
+      // setSliding(-500)
       setIndex(index - 1)
     }
   }
 
-  const autoSlide = (index: number) => {
-    setTimeout(() => {
-      if (index >= 2) {
-        setIndex(0)
-      } else {
-        setIndex(index + 1)
-      }
-    }, 5000);
-  }
+  // const autoSlide = (index: number) => {
+  //   setTimeout(() => {
+  //     if (index >= 2) {
+  //       setIndex(0)
+  //     } else {
+  //       setIndex(index + 1)
+  //     }
+  //   }, 5000);
+  // }
 
-  useEffect(() => {
-    autoSlide(index)
-  }, [index])
+  // useEffect(() => {  
+  //   autoSlide(index)
+  // }, [index])
 
   const opacityAnimate = {
     offscreen: { opacity: 0, x: -20 },
@@ -78,29 +80,23 @@ const Detail = () => {
 
       <m.div initial={"offscreen"} whileInView={"onscreen"} transition={{ staggerChildren: 0.5 }} viewport={{ once: true }} className='flex 2xl:flex-row lg:flex-row flex-col justify-center 2xl:px-10 lg:px-10 md:px-10 px-5 gap-14 mb-10 '>
         <m.div variants={opacityAnimate} className='2xl:w-8/12 lg:w-8/12 w-full mt-7'>
-          <div className='relative h-[60%] overflow-hidden shadow-[-2px_2px_4px_-1px_rgba(100,100,100,0.5)] rounded-xl'>
+          <div className='relative w-full h-[60%] flex overflow-hidden shadow-[-2px_2px_4px_-1px_rgba(100,100,100,0.5)] rounded-xl'>
+
+            <AnimatePresence initial={false}>
+              <m.div
+                variants={variants}
+                animate={"onScreen"}
+                initial={"offScreen"}
+                exit={"exit"}
+                key={dataDetail.image[index]}
+                style={{ backgroundImage: `url(${dataDetail.image[index]})`, aspectRatio: (19 / 8) }} className='w-full h-full bg-cover bg-no-repeat absolute top-0 left-0' >
+              </m.div>
+            </AnimatePresence>
+
+
             {/* <AnimatePresence initial={false}> */}
 
-            {/* <div className="carousel w-full">
-              <div id="slide1" className="carousel-item relative w-full">
-                <img src="/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" className="w-full" />
-              </div>
-              <div id="slide2" className="carousel-item relative w-full">
-                <img src="/images/stock/photo-1609621838510-5ad474b7d25d.jpg" className="w-full" />
-              </div>
-              <div id="slide3" className="carousel-item relative w-full">
-                <img src="/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
-              </div>
-              <div id="slide4" className="carousel-item relative w-full">
-                <img src={dataDetail.image[0]} className="w-full" />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                  <a href="#slide3" className="btn btn-circle">❮</a>
-                  <a href="#slide1" className="btn btn-circle">❯</a>
-                </div>
-              </div>
-            </div> */}
-
-            <m.img src={dataDetail.image[index]} variants={variants} initial="offScreen" animate="onScreen" exit={"exit"} key={dataDetail.image[index]} alt="gambar dokumentasi" className='w-full' style={{ aspectRatio: (16 / 8) }} />
+            {/* <m.img src={dataDetail.image[index]} variants={variants} initial="offScreen" animate="onScreen" exit={"exit"} key={dataDetail.image[index]} alt="gambar dokumentasi" className='w-full' style={{ aspectRatio: (16 / 8) }} /> */}
 
             {/* <m.div variants={variants} initial="offScreen" animate="onScreen" exit="leftScreen" key={dataDetail.image[index]} className="rounded-xl h-full shadow-[-2px_2px_4px_-1px_rgba(100,100,100,0.5)] bg-no-repeat bg-cover" style={{ backgroundImage: `url(${dataDetail.image[index]})` }}>
             </m.div> */}

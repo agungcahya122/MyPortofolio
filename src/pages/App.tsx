@@ -131,7 +131,6 @@ const App = () => {
       emailjs.sendForm(`${import.meta.env.VITE_API_KEY_PUBLIC_ID}`, `${import.meta.env.VITE_API_KEY_TEMPLATE_ID}`, form.current, `${import.meta.env.VITE_API_KEY_PUBLIC_KEY}`)
         .then((result) => {
           toast.success("Berhasil mengirimkan email")
-          console.log(result.text);
           Array.from(document.querySelectorAll("input")).forEach(
             (input) => (input.value = "")
           );
@@ -139,7 +138,6 @@ const App = () => {
             (textarea) => (textarea.value = "")
           );
         }, (error) => {
-          console.log(error.text);
           toast.error(error.text)
         })
         .finally(() => setDisable(false));
